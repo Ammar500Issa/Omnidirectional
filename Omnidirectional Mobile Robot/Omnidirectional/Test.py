@@ -1,3 +1,4 @@
+# This code tests the omnidirectional movement of the robot in PyBullet environment
 import pybullet as p
 import pybullet_data
 omni_id = p.connect(p.GUI)

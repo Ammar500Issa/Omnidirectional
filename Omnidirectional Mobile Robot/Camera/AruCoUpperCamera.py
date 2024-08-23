@@ -1,3 +1,4 @@
+# This code is used to detect the position (x, y) and orientation (theta) of the robot using a calibrated external upper camera, and is used to test and estimate the robot's parameters
 import numpy as np
 import cv2
 import requests
@@ -27,7 +28,7 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 576)
 # filename = "C:\\Users\\Ammar Issa\\Desktop\\Camera\\" + "Potato" + ".jpg"
 # cv2.imwrite(filename, img)
 
-g1 = open('X.txt', 'a')
+g1 = open('X.txt', 'a') # These files are used to save the position and orientation of the robot at each moment
 g2 = open('Y.txt', 'a')
 g3 = open('Theta.txt', 'a')
 
@@ -42,7 +43,7 @@ while True:
     ret, img = cap.read()
     dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
     parameters = cv2.aruco.DetectorParameters()
-    detector = cv2.aruco.ArucoDetector(dictionary, parameters)
+    detector = cv2.aruco.ArucoDetector(dictionary, parameters) # Detecting the ArUco marker placed on the top of the robot
     markerCorners, markerIds, rejectedCandidates = detector.detectMarkers(img)
     if markerIds is None:
         pos = lastPos
@@ -68,6 +69,7 @@ while True:
     data = bytearray(struct.pack("fff", pos[0]*0.1/71 - 0.7566901408450705, -pos[1]*0.1/60 + 0.3408333333333334, theta))
     with open(filename, 'w') as f:
         f.write(str(pos[0]*0.1/71 - 0.7566901408450705) + "\n" + str(-pos[1]*0.1/60 + 0.3408333333333334) + "\n" + str(theta))
+    # The following lines are used to write the data into external files for other use
     # sleep(0.05)
     # ser.write(data)
     # print(str(pos[0]*0.1/71 - 0.7566901408450705) + " " + str(-pos[1]*0.1/60 + 0.3408333333333334) + " " + str(theta))

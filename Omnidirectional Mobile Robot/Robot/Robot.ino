@@ -1,3 +1,4 @@
+// This code is similar to Control.ino, but was built without using of the timer to test the serial connection
 #include <AccelStepper.h>
 #include <MultiStepper.h>
 

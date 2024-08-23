@@ -5,9 +5,9 @@ import yaml
 import cv2.aruco
 from time import time
 
-url = "http://192.168.137.234:8080/shot.jpg"
+url = "http://192.168.137.234:8080/shot.jpg" # Taking the photo of the camera (It was taken using IP Webcam)
 
-with open("Calibration.yml", 'r') as stream:
+with open("Calibration.yml", 'r') as stream: # Getting the calibration matrix of the used camera
     dictionary = yaml.safe_load(stream)
 C = dictionary.get("camera_matrix")
 Dist = dictionary.get("dist_coeff")
@@ -21,9 +21,8 @@ while i < n:
     img_resp = requests.get(url)
     img_arr = np.array(bytearray(img_resp.content), dtype=np.uint8)
     img = cv2.imdecode(img_arr, -1)
-    # img = cv2.imread("C:\\Users\\Ammar Issa\\Desktop\\Camera\\New folder\\New folder\\" + str(i) + ".jpg")
     cv2.imshow("Android_cam", img)
-    dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
+    dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50) # Defining the dictionary of the used ArUco markers
     parameters = cv2.aruco.DetectorParameters()
     detector = cv2.aruco.ArucoDetector(dictionary, parameters)
     markerCorners, markerIds, rejectedCandidates = detector.detectMarkers(img)
@@ -45,7 +44,7 @@ while i < n:
     cv2.line(img, (int(pos[0]), int(pos[1])), ((int(hor[0] + pos[0])), int(hor[1] + pos[1])), (255, 0, 0), 2)
     cv2.imshow("Android_cam", img)
     print(pos, theta)
-    filename = "C:\\Users\\Ammar Issa\\Desktop\\Camera\\" + str(i) + ".jpg"
+    filename = "C:\\Users\\Ammar Issa\\Desktop\\Camera\\" + str(i) + ".jpg" # Saving the image of the ArUco markers as detected by the robot
     # cv2.imwrite(filename, img)
     cv2.waitKey(1)
     if cv2.waitKey(1) == 27:

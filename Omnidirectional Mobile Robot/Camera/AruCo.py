@@ -1,3 +1,4 @@
+# This code is used to detect the position and orientation of the robot using the central camera on the robot
 import numpy as np
 import cv2
 import requests

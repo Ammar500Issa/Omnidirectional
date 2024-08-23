@@ -43,7 +43,7 @@ while True:
     ret, img = cap.read()
     dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
     parameters = cv2.aruco.DetectorParameters()
-    detector = cv2.aruco.ArucoDetector(dictionary, parameters) # Detecting the ArUco marker placed on the top of the robot
+    detector = cv2.aruco.ArucoDetector(dictionary, parameters) # Detecting the AruCo marker placed on the top of the robot
     markerCorners, markerIds, rejectedCandidates = detector.detectMarkers(img)
     if markerIds is None:
         pos = lastPos

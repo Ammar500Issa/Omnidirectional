@@ -1,3 +1,4 @@
+# This code is similar to AruCo.py, but uses many AruCo markers instead of one
 import numpy as np
 import cv2
 import requests
@@ -30,7 +31,7 @@ detector = cv2.aruco.ArucoDetector(dictionary, parameters)
 markerCorners, markerIds, rejectedCandidates = detector.detectMarkers(img)
 cv2.waitKey(1)
 j = -1
-pos = [[-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]]
+pos = [[-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]] # There are 7 markers set in the environment, with known positions of each of them (ConvX, ConvY)
 vec = [[-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]]
 hor = [[-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]]
 while True:
@@ -62,10 +63,10 @@ while True:
             rvecs = [[], [], [], [], [], [], []]
             tvecs = [[], [], [], [], [], [], []]
             for c in markerCorners[j]:
-                nada, R, t = cv2.solvePnP(marker_points, markerCorners[j][0], np.float32(C), np.float32(Dist), False, cv2.SOLVEPNP_IPPE_SQUARE)
+                amm, R, t = cv2.solvePnP(marker_points, markerCorners[j][0], np.float32(C), np.float32(Dist), False, cv2.SOLVEPNP_IPPE_SQUARE)
                 rvecs.append(R)
                 tvecs.append(t)
-                trash.append(nada)
+                trash.append(amm)
             print([tvecs[i][0][2] - ConvX, -tvecs[i][0][0] + ConvY[i], -tvecs[i][0][1]])
             print(rvecs[i][0][0] - np.pi)
 

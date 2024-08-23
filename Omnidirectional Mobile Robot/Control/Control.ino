@@ -13,22 +13,22 @@ MultiStepper S;
 #define encPin3 3
 #define encPin4 18
 
-double r = 0.05;
-double L = 0.15;
-double Bv = 0.038709;
-double Bw = 0.0008517;
-double Cv = 0.019178;
-double Cw = 0.099875;
+double r = 0.05; // Radius of the wheel
+double L = 0.15; // Distance between the center of the robot and each wheel
+double Bv = 0.038709; // Dynamic friction coefficient of linear transition
+double Bw = 0.0008517; // Dynamic friction coefficient of angular rotation
+double Cv = 0.019178; // Static friction coefficient of linear transition
+double Cw = 0.099875; // Static friction coefficient of angular rotation
 //double Bv = 0.5;
 //double Bw = 0;
 //double Cv = 2;
 //double Cw = 0;
-double J = 0.45923;
-double M = 9.1;
+double J = 0.45923; // Inertia of the robot
+double M = 9.1; // Mass of the robot
 double mu_p = 0;
 double g = 9.81;
 // uncertainities
-double dBv = 0.001;
+double dBv = 0.001; // Errors
 double dCv = 0.001;
 double dBw = 0.0001;
 double dCw = 0.01;
@@ -37,7 +37,7 @@ double dCw = 0.01;
 //double dBw = 0;
 //double dCw = 0;
 
-//Controller coeff
+// Controller coefficients
 double lambda1 = 2.75;
 double lambda2 = 2.75;
 double lambda3 = 5;
@@ -76,7 +76,7 @@ double lastFreq2 = 0;
 double lastFreq3 = 0;
 double lastFreq4 = 0;
 
-// from camera
+// From camera (using serial connection)
 float XC = 0;
 float YC = 0;
 float ThetaC = 0;
@@ -156,7 +156,7 @@ int sign(double X) {
     return 0;
 }
 
-double sat(double X) {
+double sat(double X) { // Replacing the sign function with saturation to avoid high frequency changes
   double Y_sat = 1;
   double X_sat = 0.1;
   if(X > X_sat) {
@@ -196,7 +196,7 @@ void timerISR()
     }
 //    Theta = ThetaC;
     lastTheta = Theta;
-    double Vx = cos(Theta)*Vxb - sin(Theta)*Vyb;
+    double Vx = cos(Theta)*Vxb - sin(Theta)*Vyb; // Converting between coordinate systems
     double Vy = cos(Theta)*Vyb + sin(Theta)*Vxb;
     double X = Vx*T + lastX;
     double Y = Vy*T + lastY;
@@ -209,6 +209,7 @@ void timerISR()
     lastY = Y;
     double ex = X - Xd;
     double ey = Y - Yd;
+  // Setting the controller commands
     double u[4];
     u[0] = (1/(r*M))*(Bv*Vy + Cv*sign(Vy)) - (lambda2/r)*Vy;
     u[2] = -u[0];

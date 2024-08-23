@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Robot">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.157486061036765 -0.000285085739825081 -0.0225046964819652"
+        rpy="0 0 0" />
+      <mass
+        value="1.206753271021" />
+      <inertia
+        ixx="0.00196507531117052"
+        ixy="9.86649316798731E-09"
+        ixz="-8.71549812039233E-07"
+        iyy="0.00245945680236718"
+        iyz="6.43777918234759E-20"
+        izz="0.00414437527817527" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="motor_one">
+    <inertial>
+      <origin
+        xyz="-0.0130082713947478 -0.00764575523290381 -0.0609808542253382"
+        rpy="0 0 0" />
+      <mass
+        value="0.130915019913126" />
+      <inertia
+        ixx="8.17591728775009E-05"
+        ixy="-3.97120732258765E-10"
+        ixz="-5.20030285566146E-06"
+        iyy="7.1013184814088E-05"
+        iyz="-4.27502061906724E-09"
+        izz="7.07541026231804E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/motor_one.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0980392156862745 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/motor_one.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_motor_one"
+    type="fixed">
+    <origin
+      xyz="0.00119745896918461 0 -0.03"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="motor_one" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="wheel_one">
+    <inertial>
+      <origin
+        xyz="0.027605 1.3484E-05 6.9609E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.19596" />
+      <inertia
+        ixx="7.5537E-05"
+        ixy="-5.4765E-11"
+        ixz="-2.9465E-10"
+        iyy="4.1285E-05"
+        iyz="2.009E-11"
+        izz="4.1285E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/wheel_one.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1098 0.1098 0.1098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/wheel_one.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_one"
+    type="continuous">
+    <origin
+      xyz="0.03355 -0.0076435 -0.05714"
+      rpy="0 0 0" />
+    <parent
+      link="motor_one" />
+    <child
+      link="wheel_one" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="motor_two">
+    <inertial>
+      <origin
+        xyz="-0.0130082713947483 -0.00764575523290717 -0.0609808542253383"
+        rpy="0 0 0" />
+      <mass
+        value="0.130915019913127" />
+      <inertia
+        ixx="8.17591728775012E-05"
+        ixy="-3.97120732366386E-10"
+        ixz="-5.20030285566142E-06"
+        iyy="7.10131848140883E-05"
+        iyz="-4.27502061905043E-09"
+        izz="7.07541026231806E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/motor_two.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0980392156862745 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/motor_two.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_motor_two"
+    type="fixed">
+    <origin
+      xyz="-0.16 0.1612 -0.03"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="motor_two" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="wheel_two">
+    <inertial>
+      <origin
+        xyz="0.027605 1.3484E-05 6.9609E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.19596" />
+      <inertia
+        ixx="7.5537E-05"
+        ixy="-5.4777E-11"
+        ixz="-2.9464E-10"
+        iyy="4.1285E-05"
+        iyz="2.0058E-11"
+        izz="4.1285E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/wheel_two.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1098 0.1098 0.1098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/wheel_two.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_two"
+    type="continuous">
+    <origin
+      xyz="0.03355 -0.0076435 -0.05714"
+      rpy="0 0 0" />
+    <parent
+      link="motor_two" />
+    <child
+      link="wheel_two" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="motor_three">
+    <inertial>
+      <origin
+        xyz="-0.0130082713947506 0.00835424476709146 -0.0609808542253382"
+        rpy="0 0 0" />
+      <mass
+        value="0.130915019913127" />
+      <inertia
+        ixx="8.17591728775012E-05"
+        ixy="-3.97120732180536E-10"
+        ixz="-5.20030285566136E-06"
+        iyy="7.10131848140883E-05"
+        iyz="-4.27502061911874E-09"
+        izz="7.07541026231806E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/motor_three.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0980392156862745 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/motor_three.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_motor_three"
+    type="fixed">
+    <origin
+      xyz="-0.3212 0 -0.03"
+      rpy="0 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="motor_three" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="wheel_three">
+    <inertial>
+      <origin
+        xyz="0.027605 1.3484E-05 6.9609E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.19596" />
+      <inertia
+        ixx="7.5537E-05"
+        ixy="-5.5452E-11"
+        ixz="-2.9406E-10"
+        iyy="4.1285E-05"
+        iyz="1.998E-11"
+        izz="4.1285E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/wheel_three.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1098 0.1098 0.1098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/wheel_three.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_three"
+    type="continuous">
+    <origin
+      xyz="0.03355 0.0083565 -0.05714"
+      rpy="0 0 0" />
+    <parent
+      link="motor_three" />
+    <child
+      link="wheel_three" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="motor_four">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/motor_four.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/motor_four.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_motor_four"
+    type="fixed">
+    <origin
+      xyz="-0.160000000000001 -0.161197458969184 -0.0299999999999984"
+      rpy="0 0 -1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="motor_four" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="wheel_four">
+    <inertial>
+      <origin
+        xyz="0.027605 1.3484E-05 6.9609E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.19596" />
+      <inertia
+        ixx="7.5537E-05"
+        ixy="-5.5472E-11"
+        ixz="-2.9403E-10"
+        iyy="4.1285E-05"
+        iyz="1.9984E-11"
+        izz="4.1285E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/wheel_four.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1098 0.1098 0.1098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot/meshes/wheel_four.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_four"
+    type="continuous">
+    <origin
+      xyz="0.03355 0.0077565 -0.05714"
+      rpy="0 0 0" />
+    <parent
+      link="motor_four" />
+    <child
+      link="wheel_four" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+</robot>
